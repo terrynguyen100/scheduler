@@ -27,6 +27,7 @@ function InterviewerList(props) {
   );
 }
 
+// Validating the interviewers prop using prop-types
 InterviewerList.propTypes = {
   value: PropTypes.number,
   onChange: PropTypes.func.isRequired,

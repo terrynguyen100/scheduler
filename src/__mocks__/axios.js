@@ -53,8 +53,14 @@ const fixtures = {
   }
 };
 
+
+//This is a mock module. Its role is to replace the axios.get call to obtain the data. We intercept it and replace the response with fixtures
+// to ensure that everytime the test is run, we always get back to same data for testing
 export default {
   get: jest.fn(url => {
+  // This mock accepts a url argument because it is replacing the actual axios implementation
+  // it will return a resolved promise to match the interface used by axios
+  // We skip the whole sequence of HTTP operations and resolve a hardcoded version of the response data.
     if (url === "/api/days") {
       return Promise.resolve({
         status: 200,
